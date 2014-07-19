@@ -8,7 +8,7 @@ var suffix = "fla";
 run();
 function run()
 {
-	var path = prompt("enter contains fla's file path", "");
+	var path = prompt("enter fla's file path", "");
 	if(!path || path == ""){
 		return;
 	}
@@ -56,6 +56,9 @@ function exportFlaFile(folderlist, path)
 					if(isMatch){
 						fl.trace(flaPathName);
 						fl.openDocument(flaPathName);
+						if(fl.getDocumentDOM().asVersion != 3){
+							fl.getDocumentDOM().asVersion = 3;
+						}
 						doc = fl.getDocumentDOM();
 						//doc.exportSWF(flaPathName, true);
 						doc.exportSWF(outputPath + "/" + getFileName(flaPathName), true);

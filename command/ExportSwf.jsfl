@@ -56,10 +56,10 @@ function exportFlaFile(folderlist, path)
 					if(isMatch){
 						fl.trace(flaPathName);
 						fl.openDocument(flaPathName);
-						if(fl.getDocumentDOM().asVersion != 3){
-							fl.getDocumentDOM().asVersion = 3;
-						}
 						doc = fl.getDocumentDOM();
+						if(doc.asVersion != 3){
+							doc.asVersion = 3;
+						}
 						//doc.exportSWF(flaPathName, true);
 						doc.exportSWF(outputPath + "/" + getFileName(flaPathName), true);
 						doc.save(false);
